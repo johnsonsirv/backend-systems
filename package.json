@@ -1,0 +1,12 @@
+{
+  "name": "taskterm",
+  "version": "1.0.0",
+  "description": "Interactive task manager on the command line interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "start": "node index.js"
+  },
+  "author": "Victor Okeugo",
+  "license": "ISC"
+}
