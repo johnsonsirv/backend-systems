@@ -11,6 +11,13 @@ const r1 = readline.createInterface({
 
 
 const client = new EventEmitter();
+const server = require('./server')(client)
+
+server.on('response', (response) => {
+    process.stdout.write('\u001B[2J\u001B[0;0f') // clear the prompt
+    process.stdout.write(response);
+    process.stdout.write(`\n${cursorPrompt}`);
+});
 
 r1.on('line', (input) => {
     [cmd, ...args] = input.trim().split(' ');
