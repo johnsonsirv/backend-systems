@@ -16,6 +16,35 @@ class TaskTermServer extends EventEmitter {
                 'Type a command (help to list commands)'
             );
         });
+
+        client.on('command', (cmd, args) => {
+            switch (cmd) {
+                case 'help':
+                case 'ls':
+                case 'add':
+                case 'delete':
+                    this[cmd](args)
+                    break;
+                default:
+                    this.emit('response', 'Unknown command');
+            }
+        });
+    }
+
+    help(){
+
+    }
+    
+    ls(){
+
+    }
+
+    add(args){
+
+    }
+
+    delete(args){
+
     }
 }
 
