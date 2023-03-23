@@ -32,19 +32,34 @@ class TaskTermServer extends EventEmitter {
     }
 
     help(){
-
+        this.emit('response', `Available commands: 
+        add task
+        ls
+        delete :id
+        `)
     }
-    
-    ls(){
 
+    ls(){
+        this.emit('response', `Tasks: \n${this.#tasksString()}`)
     }
 
     add(args){
-
+        const newTask = args.join(' ')
+        this.tasks[this.taskId] = newTask;
+        this.emit('response', `Added Task ${this.taskId}`)
+        this.taskId++
     }
 
     delete(args){
+        delete (this.tasks[args[0]]);
+        this.emit('response', `Deleted task ${args[0]}`)
+    }
 
+    // Private method
+    #tasksString(){
+        return Object.keys(this.tasks).map((key) => {
+            return `${key}: ${this.tasks[key]}`
+        }).join('\n');
     }
 }
 
