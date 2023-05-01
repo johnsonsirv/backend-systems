@@ -2,3 +2,5 @@
 
 ## Task Term - [README](./taskterm/README.md)
 
+## StreamX - [README](./streamX/README.md)
+

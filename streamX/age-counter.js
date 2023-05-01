@@ -15,9 +15,7 @@ https.get('http://localhost:8080/age-counting', (res) => {
         const keys = items.map(item => item.match(/key=([^,]+)/)[1]); 
         const output = keys.join('\n') + '\n';
         
-        console.log(data, items, keys, output);
-
-        const fileName = 'output.txt'
+        const fileName = `${__dirname}/output.txt`
         fs.writeFile(fileName, output, (err) => {
             if (err) throw err;
 
